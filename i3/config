@@ -1,0 +1,34 @@
+#=====================================================#
+# Misc
+#=====================================================#
+include ~/.config/i3/misc/essentials.conf
+include ~/.config/i3/misc/i3bar.conf
+
+#=====================================================#
+# Keybinds
+#=====================================================#
+include ~/.config/i3/keybinds/applications.conf
+include ~/.config/i3/keybinds/config-and-state.conf
+include ~/.config/i3/keybinds/containers.conf
+include ~/.config/i3/keybinds/custom.conf
+include ~/.config/i3/keybinds/workspace.conf
+include ~/.config/i3/keybinds/XF86-keys.conf
+
+#=====================================================#
+# Executions
+#=====================================================#
+include ~/.config/i3/executions/custom.conf
+include ~/.config/i3/executions/default.conf
+
+#=====================================================#
+# Modes
+#=====================================================#
+include ~/.config/i3/modes/resize.conf
+
+
+# WARNING: Should exist in the main config file and not in any directive
+# Since the parsing of variables is done differently (at a differnt stage)
+# Set Meta(Windows) key as the default modifier for i3.
+set $mod Mod4
+
+# https://i3wm.org/docs/userguide.html
