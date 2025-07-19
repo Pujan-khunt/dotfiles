@@ -1,3 +1,11 @@
 [user]
-	name = Pujan Khunt
 	email = pujankhunt2412@gmail.com
+	name = Pujan-khunt
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[alias]
+	st = status
+[credential]
+	helper = store
