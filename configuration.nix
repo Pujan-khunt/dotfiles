@@ -22,7 +22,8 @@
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Install system packages
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs;
   [ git vim ];
 
@@ -71,6 +72,16 @@
      ];
    };
 
+  hardware.bluetooth = {
+  	enable = true;
+	powerOnBoot = true;
+	settings = {
+		General = {
+			Experimental = true;
+		};
+	};
+  };
+
   programs.firefox.enable = true;
 
   programs.hyprland.enable = true;
@@ -84,18 +95,12 @@
 				main = {
 					# CapsLock = Esc (on press) + Ctrl (on hold)
 					capslock = "overload(control, esc)";
+					esc = "capslock";
 				};
 			};
 		};
 	};
   };
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
