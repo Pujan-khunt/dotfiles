@@ -75,6 +75,21 @@
 
   programs.hyprland.enable = true;
 
+  services.keyd = {
+	enable = true;
+	keyboards = {
+		default = {
+			ids = [ "*" ]; # Applies to all keyboards
+			settings = {
+				main = {
+					# CapsLock = Esc (on press) + Ctrl (on hold)
+					capslock = "overload(control, esc)";
+				};
+			};
+		};
+	};
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   # environment.systemPackages = with pkgs; [
