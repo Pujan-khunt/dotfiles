@@ -3,14 +3,22 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		
+		nixvim = {
+			url = "github:nix-community/nixvim";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
-	outputs = { self, nixpkgs, ... }: {
+	outputs = { self, nixpkgs, nixvim, ... }: {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
 				./hardware-configuration.nix
 				./configuration.nix
+				
+				# NixVim module
+				nixvim.nixosModules.nixvim
 			];
 		};
 	};

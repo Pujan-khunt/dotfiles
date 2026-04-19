@@ -75,16 +75,21 @@
   hardware.bluetooth = {
   	enable = true;
 	powerOnBoot = true;
-	settings = {
-		General = {
-			Experimental = true;
-		};
-	};
+	settings.General.Experimental = true;
   };
 
   programs.firefox.enable = true;
-
   programs.hyprland.enable = true;
+
+  programs.nixvim = {
+	enable = true;
+	defaultEditor = true; # updates the EDITOR environment variable
+
+	opts = {
+		number = true;
+		relativenumber = true;
+	};
+  };
 
   services.keyd = {
 	enable = true;
