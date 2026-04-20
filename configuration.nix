@@ -67,13 +67,6 @@
    users.users.pujan = {
      isNormalUser = true;
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-	alacritty
-
-	# Telescope.nvim
-	ripgrep # live_grep
-	fd # find_files
-     ];
    };
 
   hardware.bluetooth = {
@@ -82,68 +75,9 @@
 	settings.General.Experimental = true;
   };
 
-  programs.firefox.enable = true;
-  programs.hyprland.enable = true;
-
-  programs.nixvim = {
-	enable = true;
-	defaultEditor = true; # updates the EDITOR environment variable
-
-	globals.mapleader = " ";
-	globals.maplocalleader = " ";
-
-	opts = {
-		number = true;
-		relativenumber = true;
-	};
-
-	plugins.telescope = {
-		enable = true;
-
-		keymaps = {
-			"<leader>fd" = "find_files";
-			"<leader>lg" = "live_grep";
-			"<leader>fh" = "help_tags";
-			"<leader>fr" = "resume";
-		};
-
-		settings = {
-			pickers = {
-				find_files.theme = "dropdown";
-				live_grep.theme = "ivy";
-				help_tags.theme = "ivy";
-			};
-			defaults = {
-
-			# DO NOT TOUCH
-			results_title = "You can't spell advertisements without semen between the tits.";
-			# DO NOT TOUCH
-
-
-			file_ignore_patterns = [
-				"%.env"
-				"^node_modules/"
-				".git/"
-				"%.class"
-			];
-			mappings = {
-			    i = {
-			      "<C-j>" = "move_selection_next";
-			      "<C-k>" = "move_selection_previous";
-			      "<C-l>" = "select_default";
-			      "<C-v>" = "file_vsplit";
-			      "<C-h>" = "file_split";
-			      "<C-o>" = "close";
-			    };
-			    n = {
-			      "v" = "file_vsplit";
-			      "h" = "file_split";
-			    };
-			  };
-			};
-	      };
-	};
-  };
+  fonts.packages = with pkgs; [
+  	nerd-fonts.jetbrains-mono
+  ];
 
   services.keyd = {
 	enable = true;
