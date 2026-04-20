@@ -90,6 +90,72 @@
 			action = "<cmd>Oil<cr>";
 			options.desc = "Open Oil file explorer";
 		}
+		{
+			mode = [ "n" "t" "v" ];
+			key = "<C-j>";
+			action = "<C-d>zz";
+			options.desc = "Scroll down (centered)";
+		}
+		{
+			mode = [ "n" "t" "v" ];
+			key = "<C-k>";
+			action = "<C-u>zz";
+			options.desc = "Scroll up (centered)";
+		}
+		{
+			mode = "v";
+			key = "<S-k>";
+			action = ":m '<-2<cr>gv=gv";
+			options.desc = "Move selection up";
+		}
+		{
+			mode = "v";
+			key = "<S-j>";
+			action = ":m '>+1<cr>gv=gv";
+			options.desc = "Move selection down";
+		}
+		{
+			mode = "n";
+			key = "<S-u>";
+			action = "<C-r>";
+			options.desc = "Redo action";
+		}
+		{
+			mode = "n";
+			key = "m";
+			action = "s";
+			options.desc = "Delete and go to insert mode";
+		}
+		{
+			mode = "n";
+			key = "'";
+			action = "/";
+			options.desc = "Forward search in buffer";
+		}
+		{
+			mode = "n";
+			key = "<Esc>";
+			action = "<cmd>nohl<cr>";
+			options.desc = "Remove current highlights";
+		}
+		{
+			mode = [ "n" "v" ];
+			key = "[t";
+			action = "<cmd>tabprev<cr>";
+			options.desc = "Goto previous tab";
+		}
+		{
+			mode = [ "n" "v" ];
+			key = "]t";
+			action = "<cmd>tabnext<cr>";
+			options.desc = "Goto next tab";
+		}
+		{
+			mode = "n";
+			key = "<leader>q";
+			action = "<cmd>q<cr>";
+			options.desc = "Close current window";
+		}
 	];
 
 	# https://github.com/nvim-tree/nvim-web-devicons
