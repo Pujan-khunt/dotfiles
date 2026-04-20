@@ -83,6 +83,40 @@
 		relativenumber = true;
 	};
 
+	keymaps = [
+		{
+			mode = "n";
+			key = "<leader>e";
+			action = "<cmd>Oil<cr>";
+			options.desc = "Open Oil file explorer";
+		}
+	];
+
+	# https://github.com/nvim-tree/nvim-web-devicons
+	plugins.web-devicons.enable = true;
+
+	# https://github.com/stevearc/oil.nvim
+	# :h oil.nvim
+	plugins.oil= {
+		enable = true;
+		settings = {
+		  default_file_explorer = true;
+		  columns = [
+		    "icon"
+		    "lsp"
+		  ];
+		  keymaps = {
+		  	"l" = "actions.select";
+			"h" = "actions.parent";
+		  };
+		  skip_confirm_for_simple_edits = true;
+		  delete_to_trash = true;
+		  watch_for_changes = true;
+		};
+	};
+
+	# https://github.com/nvim-telescope/telescope
+	# :h telescope.nvim
 	plugins.telescope = {
 		enable = true;
 
