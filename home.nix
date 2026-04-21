@@ -13,6 +13,8 @@
   	brightnessctl # Brightness Manger CLI
   ];
 
+  programs.bash.enable = true;
+
   # Browser
   programs.firefox.enable = true;
 
