@@ -27,6 +27,11 @@
   environment.systemPackages = with pkgs;
   [ git vim ];
 
+  programs.hyprland.enable = true;
+
+  # Enables media player control via playerctl CLI.
+  services.playerctld.enable = true;
+
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
 
@@ -57,6 +62,7 @@
   # OR
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true; # Installs wpctl to manage volume.
     pulse.enable = true;
   };
 

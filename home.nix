@@ -8,16 +8,22 @@
   # Home Manager managing itself.
   programs.home-manager.enable = true;
 
-  # Standard packages which don't require dotfiles configuration.
+  # Standard packages which don't have defined modules.
   home.packages = with pkgs; [
-  	ripgrep # Used by Telescope.nvim
-	fd 	# Used by Telescope.nvim
-
-	firefox  # Browser
-	hyprland # Wayland compositor
+  	brightnessctl # Brightness Manger CLI
   ];
 
-  # Git Configuration: ~/.gitconfig
+  # Browser
+  programs.firefox.enable = true;
+
+  # Used by Telescope.nvim
+  programs.fd.enable = true;
+  programs.ripgrep.enable = true;
+
+  # Bluetooth Manager TUI
+  programs.bluetuith.enable = true;
+
+  # Version Control System
   programs.git = {
   	enable = true;
 	settings = {
@@ -29,7 +35,7 @@
 	};
   };
 
-  # Alacritty: ~/.config/alacritty/alacritty.toml
+  # Terminal Emulator
   programs.alacritty = {
 	  enable = true;
 
@@ -70,7 +76,7 @@
   	nixvim.homeModules.nixvim
   ];
 
-  # Neovim Configuration: ~/.config/nvim
+  # Neovim Distribution
   programs.nixvim = {
 	enable = true;
 	defaultEditor = true; # updates the EDITOR environment variable
