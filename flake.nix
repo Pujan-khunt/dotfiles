@@ -33,5 +33,16 @@
 				}
 			];
 		};
+
+		# Standalone Home Manager Configuration (updated using `home-manager switch`)
+		homeConfigurations."nixos" = home-manager.lib.homeManagerConfiguration {
+			pkgs = nixpkgs.legacyPackages."x86_64-linux";
+
+			extraSpecialArgs = { inherit nixvim; };
+			
+			modules = [
+				./home.nix
+			];
+		};
 	};
 }

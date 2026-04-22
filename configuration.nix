@@ -92,6 +92,9 @@
 		default = {
 			ids = [ "*" ]; # Applies to all keyboards
 			settings = {
+				control = {
+					w = "C-backspace";
+				};
 				main = {
 					# CapsLock = Esc (on press) + Ctrl (on hold)
 					capslock = "overload(control, esc)";
