@@ -38,41 +38,64 @@
   };
 
   # Terminal Emulator
-  programs.alacritty = {
-	  enable = true;
+  programs.ghostty = {
+  	enable = true;
+	clearDefaultKeybinds = true;
+	installBatSyntax = true;
+	installVimSyntax = true;
+	systemd.enable = true;
+	settings = {
+		font-family = "DejaVu Sans Mono";
+		theme = "Ayu";
+		keybind = [
+			# Copy/Paste
+			"ctrl+shift+c=copy_to_clipboard"
+			"ctrl+shift+v=paste_from_clipboard"
+			
+			# Font size control
+			"ctrl+equal=increase_font_size:1"
+			"ctrl+minus=decrease_font_size:1"
+			"ctrl+zero=reset_font_size"
 
-	  settings = {
-	    window = {
-	      opacity = 0.75;
-	    };
+			# Closes current surface (tab/window/split)
+			"ctrl+a>c=close_surface" 
 
-	    font = {
-	      size = 15.0;
+			# tabs
+			"alt+n=new_tab"			# New tab
+			"alt+c=close_tab"		# Close tab
+			"alt+r=prompt_tab_title"	# Prompt for tab title 
+			"alt+ctrl+l=next_tab"		# Go to right tab 
+			"alt+ctrl+h=previous_tab" 	# Go to left tab
+			"alt+comma=move_tab:-1" 	# Move tab left
+			"alt+period=move_tab:1" 	# Move tab right
 
-	      normal = {
-		family = "JetBrainsMono Nerd Font";
-		style = "Regular";
-	      };
+			# quick tab switch
+			"alt+1=goto_tab:1"
+			"alt+2=goto_tab:2"
+			"alt+3=goto_tab:3"
+			"alt+4=goto_tab:4"
+			"alt+5=goto_tab:5"
+			"alt+6=goto_tab:6"
+			"alt+7=goto_tab:7"
+			"alt+8=goto_tab:8"
+			"alt+9=goto_tab:9"
 
-	      bold = {
-		family = "JetBrainsMono Nerd Font";
-		style = "Bold";
-	      };
+			# pane switch
+			"alt+h=goto_split:right"
+			"alt+j=goto_split:down"
+			"alt+k=goto_split:up"
+			"alt+l=goto_split:left"
 
-	      italic = {
-		family = "JetBrainsMono Nerd Font";
-		style = "Italic";
-	      };
-	    };
+			# split
+			"ctrl+a>shift+\\=new_split:right"	# Split Horizontally
+			"ctrl+a>-=new_split:down"	# Split Vertically
 
-	    colors = {
-	      primary = {
-		background = "0x1e1e2e";
-		foreground = "0xcdd6f4";
-	      };
-	    };
-	  };
-  	};
+			"ctrl+a>z=toggle_split_zoom"
+
+			"ctrl+a>e=equalize_splits"
+		];
+	};
+  };
 
   imports = [
   	nixvim.homeModules.nixvim
